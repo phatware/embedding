@@ -1,0 +1,19 @@
+# Core dependencies
+numpy>=1.21.0
+scipy>=1.7.0
+scikit-learn>=1.0.0
+datasets>=2.0.0
+tqdm>=4.64.0
+
+# Optional: For OpenAI embeddings
+openai>=1.0.0
+python-dotenv>=0.19.0
+
+# Optional: For local embedding models
+sentence-transformers>=2.2.0
+torch>=1.11.0
+
+# Development dependencies (optional)
+pytest>=7.0.0
+black>=22.0.0
+flake8>=4.0.0
