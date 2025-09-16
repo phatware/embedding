@@ -10,9 +10,10 @@ Most guides to embedding models for RAG emphasize empirical leaderboards and heu
 
 1. **Theoretical Foundations**: Two-sided, testable information-theoretic bounds linking embedded channel deviation to belief disagreement in the RC framework
 2. **Practical Metrics**:
-   - **RC-EmbedScore**: Parameter-free evaluation combining paraphrase detection and semantic channel quality
-   - **RAGFit**: Retrieval-specific evaluation measuring embedding suitability for RAG systems
+   - **DataFit**: Retrieval-specific evaluation measuring embedding suitability for RAG systems
    - **BTI (Bound Tightness Index)**: Novel metric quantifying embedding calibration quality
+   - **CCS (Channel Capacity Score)**: Metric assessing the capacity of the embedding to preserve information
+   - **$C_{low}$, $C_{high}$**: Robust band estimates for embedding distortion vs. information divergence
 3. **Engineering Guidelines**: Concrete sizing recipes for embeddings and context windows based on application tolerances
 4. **Comprehensive Evaluation**: Beyond size, catalog structural properties like isotropy, stability, and compositionality
 
@@ -92,6 +93,7 @@ python embedding_eval.py \
 ### Run Only One Task
 
 Paraphrase only (MRPC, balanced):
+
 ```bash
 python embedding_eval.py \
   --model text-embedding-3-small \
@@ -101,6 +103,7 @@ python embedding_eval.py \
 ```
 
 QA only (HotpotQA, window answer representation):
+
 ```bash
 python embedding_eval.py \
   --model text-embedding-3-large \
@@ -150,7 +153,7 @@ By default, results are saved to `rc_theory_eval_summary.json` (you can set an a
 | `BTI` | Bound Tightness Index (geometric-arithmetic proxy); closer to 1 $\to$ symmetric tight band. |
 | `JS_pred_low/high` | Predicted JS for the operator using band edges. Empirical $JS_{mean}$ should fall between when calibration holds. |
 | `CCS` | Channel Correlation Score: Pearson $r(JS, \delta^2)$; positive & high $\to$ monotonic distortion / info divergence relationship. |
-| `DataFit` | RC-EmbedScore style composite fit (paraphrase adds discrimination; QA factors cosine alignment). Higher $\to$ better theory-data alignment. |
+| `DataFit` | EmbedScore style composite fit (paraphrase adds discrimination; QA factors cosine alignment). Higher $\to$ better theory-data alignment. |
 | `AUC_cos`, `AUC_negJS` | (Paraphrase) Discrimination scores: cosine similarity & negative-JS AUC for paraphrase vs non-paraphrase. |
 | `cos_mean`, `delta_mean` | Intuitive averages (cosine similarity & mean $\delta$ over pairs). |
 
