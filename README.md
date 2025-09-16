@@ -4,7 +4,7 @@ This repository contains the implementation and evaluation framework accompanyin
 
 ## Overview
 
-Most guides to embedding models for RAG emphasize empirical leaderboards and heuristics, leaving open the principled question of when an embedding is *large enough* and why one model should be preferred over another. This work provides theoretical foundations and practical tools for embedding selection based on meaning preservation guarantees. Full details are in the [paper](embedding.pdf).
+Most guides to embedding models for RAG emphasize empirical leaderboards and heuristics, leaving open the principled question of when an embedding is *large enough* and why one model should be preferred over another. This work provides theoretical foundations and practical tools for embedding selection based on meaning preservation guarantees. Full details are in the [paper](http://dx.doi.org/10.13140/RG.2.2.15169.21605).
 
 ### Key Contributions
 
