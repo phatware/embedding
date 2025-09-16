@@ -222,6 +222,7 @@ If you use these metrics or sizing recipes, please cite the accompanying paper (
   title     = {Choosing Meaning-Preserving Embeddings for RAG: From Infinite Banach to Finite Practical Vector Spaces},
   author    = {Stan Miasnikov},
   year      = {2025},
+  DOI       = {10.13140/RG.2.2.15169.21605},
   note      = {Preprint; see repository for latest theory & benchmarks}
 }
 ```
